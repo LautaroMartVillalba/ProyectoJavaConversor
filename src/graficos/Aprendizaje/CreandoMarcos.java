@@ -1,4 +1,4 @@
-package graficos;
+package graficos.Aprendizaje;
 
 import java.awt.*;
 import javax.swing.*;
@@ -12,7 +12,7 @@ public class CreandoMarcos {
 		
 		MiMarco conversor = new MiMarco();
 		
-		conversor.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//EXIT_ON_CLOSE hace que el programa finalice al cerrarse
+		conversor.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		conversor.setTitle("Conversor");
 		
 	}
@@ -32,27 +32,28 @@ class MiMarco extends JFrame{
 		setLocation(anchura/4, altura / 4);
 		Image icono = mipantalla.getImage("src/graficos/icono.jpg");
 		setIconImage(icono);
-		Panel miPanel = new Panel();
+		Panels miPanel = new Panels();
 		add(miPanel);
 	}
 }
 
 
 
-class Panel extends JPanel{ 
+class Panels extends JPanel{ 
 	
 	public void paintComponent(Graphics g) { 
-		super.paintComponent(g); 
-		
-		Graphics2D g2 = (Graphics2D) g;
-		
-		//File miImagen = new File("src/graficos/fondo1.jpg");//desde aca
+		super.paintComponent(g);
 		try {
-			imagen = ImageIO.read(new File("src/graficos/fondo1.jpg"));
+			imagen = ImageIO.read(new File("src/graficos/logochikito.png"))/*Esto busca la imagen*/;
 		} catch (IOException e) {
 			System.out.println("No está la imagen, pibe");
 		} //hasta acá, sólo se crea e instancia una imagen
-		g2.drawImage(imagen, 0, 0, null); //acá se inserta la imagen
+		g.drawImage(imagen, 0, 0, null); //acá se inserta la imagen
+		g.copyArea(0, 0, 255, 255, 200, 10);
+		
+		Graphics2D g2 = (Graphics2D) g;
+		File miImagen = new File("src/graficos/fondo1.jpg");//desde aca
+		
 		Rectangle2D rectangulo = new Rectangle2D.Double(100, 100, 200, 200);
 		g2.setPaint(Color.BLUE); 
 		g2.fill(rectangulo); 
@@ -63,8 +64,12 @@ class Panel extends JPanel{
 		g2.setFont(letra);
 		g2.drawString("Hola, buenas:D", 50, 25);
 	}
-	private Image imagen;
+	private Image imagen; //Se coloca para que pueda ser usada en toda la clase
 }
+
+
+
+
 
 //A partir de acá se encuentran apuntes de aprendizaje no utilizados en el proyecto, o que carecen de utilidad por ahora
 
