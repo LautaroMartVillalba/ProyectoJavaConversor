@@ -3,20 +3,22 @@ package graficos.ProyectoUtil;
 import java.awt.*;
 import javax.swing.*;
 
-public class Marco extends JFrame{
+public class Marco extends JFrame {
 
-	public Marco() {
-		Toolkit miPantalla = Toolkit.getDefaultToolkit();
-		Dimension tamanhoPantalla = miPantalla.getScreenSize();
-		setResizable(false);
-		int altura = tamanhoPantalla.height;
-		int anchura = tamanhoPantalla.width;
-		setSize(anchura / 2, altura / 2);
-		setLocation(anchura / 4, altura / 4);
-		Image icono = miPantalla.getImage("src/graficos/icono.jpg");
-		setIconImage(icono);
-		Panel miPanel = new Panel();
-		add(miPanel);
-		setVisible(true); /*Es importante que esté al final, pues el efecto de cascada haria que lo que esté debajo no sea cargado para poder posteriormente verse*/
-	}
+    public Marco() {
+        Toolkit miPantalla = Toolkit.getDefaultToolkit();
+        Dimension tamanhoPantalla = miPantalla.getScreenSize();
+        setResizable(false);
+        int altura = tamanhoPantalla.height;
+        int anchura = tamanhoPantalla.width;
+        setSize(anchura / 2, altura / 2);
+        setLocation(anchura / 4, altura / 4);
+
+        Panel miPanel = new Panel(); // Crear instancia del panel
+
+        add(miPanel); // Agregar el panel al marco
+
+        setTitle("Proyecto de Conversor");
+        setVisible(true);
+    }
 }
