@@ -6,6 +6,7 @@ import java.io.*;
 import java.util.HashMap;
 import javax.imageio.ImageIO;
 import javax.swing.*;
+import java.text.DecimalFormat;
 
 public class Panel extends JPanel implements ActionListener {
 
@@ -15,6 +16,7 @@ public class Panel extends JPanel implements ActionListener {
 	JButton convertir2;
 	JTextField casilla2;
 	JComboBox<String> cajaMonedas2;
+	DecimalFormat redondeoDecimal = new DecimalFormat("#.####");
 
 	public Panel() {
 		setLayout(null);
@@ -115,7 +117,8 @@ public class Panel extends JPanel implements ActionListener {
 		HashMap<String, Double> monedas = arraysMonedas.getMonedas(); //Hace que el HashMap obtenga el valor de las monedas de la lista de la linea anterior
 		double valorMoneda = monedas.get(monedaSeleccionada); //Utiliza el método get de HashMap para recibir la clave del arraysMOnedas(utiliza el String obtenido de monedaSeleccionada, pudiendo así identificar la clave, y por ende el valor Double
 		double resultado = valor * valorMoneda; //multiplica el valor del JTextField por el de la moneda seleccionada
-		JOptionPane.showMessageDialog(this, "El resultado es: " + resultado + " " + monedaSeleccionada);
+		String resultadoRedondeado = redondeoDecimal.format(resultado);
+		JOptionPane.showMessageDialog(this, "El resultado es: " + resultadoRedondeado + " " + monedaSeleccionada);
 	}
 	private void calcular2() {
 		String valorTexto = casilla2.getText();
@@ -126,6 +129,7 @@ public class Panel extends JPanel implements ActionListener {
 		HashMap<String, Double> monedas = arraysMonedas.getMonedas();
 		double valorMoneda = monedas.get(monedaSeleccionada);
 		double resultado = valor / valorMoneda;
-		JOptionPane.showMessageDialog(this, "El resultado es: " + resultado + " " + monedaSeleccionada);
+		String resultadoRedondeado = redondeoDecimal.format(resultado);
+		JOptionPane.showMessageDialog(this, "El resultado es: " + resultadoRedondeado + "ARS(Pesos Argentinos)");
 	}
 }
