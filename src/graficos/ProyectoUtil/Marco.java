@@ -17,9 +17,9 @@ public class Marco extends JFrame {
         setIconImage(icono.getImage());
         
 
-        Panel miPanel = new Panel(); // Crear instancia del panel
+        Panel miPanel = new Panel();
 
-        add(miPanel); // Agregar el panel al marco
+        add(miPanel);
 
         setTitle("Proyecto de Conversor");
         setVisible(true);

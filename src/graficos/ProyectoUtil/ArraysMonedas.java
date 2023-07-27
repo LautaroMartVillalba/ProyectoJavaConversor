@@ -3,12 +3,11 @@ package graficos.ProyectoUtil;
 import java.util.HashMap;
 
 public class ArraysMonedas {
-	private HashMap<String, Double> monedas; //Permite crear una "lista" en la que se almacena una clave-valor, lo cual permite tener dos datos en un mismo elemento
+	private HashMap<String, Double> monedas;
 
 	public ArraysMonedas() {
 	        monedas = new HashMap<>();
 
-	        // Agregar las monedas a la lista
 	        monedas.put("ARS (Peso Argentino)", 1.0);
 	        monedas.put("USD (Dolar Estadounidense)", 1.5);
 	        monedas.put("Euro", 2.0);
@@ -19,10 +18,10 @@ public class ArraysMonedas {
 	        monedas.put("RUB (Rublo Ruso)", 4.5);
 	        monedas.put("BRL (Real Brasileño)", 5.0);
 	}
-	public HashMap<String, Double> getMonedas() { //Da todas las monedas agregadas al Array, 
+	public HashMap<String, Double> getMonedas() {
         return monedas;
     }
-	public double getValorMoneda(String moneda) { //Retorna el valor de la moneda seleccionada
+	public double getValorMoneda(String moneda) {
         return monedas.getOrDefault(moneda, 0.0);
     }
 }
